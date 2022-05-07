@@ -33,8 +33,8 @@ remote_state {
     bucket               = local.common_vars.locals.bucket_backend_name
     profile              = local.common_vars.locals.bucket_backend_profile
     region               = local.common_vars.locals.aws_region
-    workspace_key_prefix = "${local.common_vars.locals.bucket_proyect_folder}/${path_relative_to_include()}"
-    key                  = local.common_vars.locals.bucket_backend_key
+    # workspace_key_prefix = "${local.common_vars.locals.bucket_proyect_folder}/${path_relative_to_include()}"
+    key                  = "${local.common_vars.locals.bucket_proyect_folder}/${path_relative_to_include()}/${local.common_vars.locals.bucket_backend_key}"
     encrypt              = local.common_vars.locals.bucket_backend_encrypt
   }
 }
