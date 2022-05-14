@@ -9,6 +9,7 @@ module "ec2_instance" {
   monitoring             = false
   vpc_security_group_ids = [var.instance_sg]
   subnet_id              = var.subnet_public
+  user_data = file("userdata.sh")
 
   tags = {
     Terraform   = "true"
