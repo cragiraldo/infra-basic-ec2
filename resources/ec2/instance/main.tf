@@ -5,10 +5,10 @@ module "ec2_instance" {
 
   ami                    = "ami-005de95e8ff495156"
   instance_type          = "t2.micro"
-  key_name               = "ec2-linuxx"
+  key_name               = var.key_name_basic
   monitoring             = false
-  vpc_security_group_ids = var.instance_sg
-  subnet_id              = var.subnet_public[1]
+  vpc_security_group_ids = [var.instance_sg]
+  subnet_id              = var.subnet_public
 
   tags = {
     Terraform   = "true"

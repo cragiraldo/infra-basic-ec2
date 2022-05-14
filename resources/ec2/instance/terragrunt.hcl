@@ -20,7 +20,16 @@ dependency "sg" {
   skip_outputs = false
 }
 
+dependency "key_pair" {
+  config_path = "${get_parent_terragrunt_dir()}/resources/ec2/key-pair"
+  mock_outputs = {
+    key_name_basic = "key_name_output_mock"
+  }
+  skip_outputs = false
+}
+
 inputs = {
-  subnet_public = dependency.vpc.outputs.subnet_ids
+  key_name_basic = dependency.key_pair.outputs.keypair
+  subnet_public = dependency.vpc.outputs.subnet_ids[0]
   instance_sg = dependency.sg.outputs.sg_id
 }
