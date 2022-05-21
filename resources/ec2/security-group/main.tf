@@ -20,4 +20,10 @@ module "web_server_sg" {
       cidr_blocks = "0.0.0.0/0"
     },
   ]
+  egress_with_cidr_blocks = [
+    {
+      rule = "all-all"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
 }
