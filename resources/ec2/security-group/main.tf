@@ -27,3 +27,26 @@ module "web_server_sg" {
     },
   ]
 }
+
+module "alb_sg" {
+  source = "terraform-aws-modules/security-group/aws"
+
+  name        = "alb-sg"
+  description = "Security group for ALB"
+  vpc_id      = var.vpc_id
+  ingress_with_cidr_blocks = [
+    {
+      from_port = 80
+      to_port   = 80
+      protocol  = "tcp"
+      description = "user service"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
+  egress_with_cidr_blocks = [
+    {
+      rule = "all-all"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
+}
