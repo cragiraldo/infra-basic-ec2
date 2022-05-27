@@ -31,7 +31,7 @@ dependency "instance" {
 
 
 inputs = {
-  subnet_public = dependency.vpc.outputs.subnet_ids{[0],[1]}
+  subnet_public = dependency.vpc.outputs.subnet_ids
   instance_sg = dependency.sg.outputs.sg_id
   sg_alb_id = dependency.sg.outputs.sg_alb_id
   instance_id =  dependency.instance.outputs.instance_id
