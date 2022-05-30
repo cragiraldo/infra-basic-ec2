@@ -8,7 +8,7 @@ module "alb" {
 
 
   vpc_id             = var.vpc_id
-  subnets            = [var.subnet_public]
+  subnets            = [var.subnet_public[0],var.subnet_public[1]]
   security_groups    = [var.sg_alb_id]
   internal = false
 

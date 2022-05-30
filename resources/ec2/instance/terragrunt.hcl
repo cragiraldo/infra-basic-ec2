@@ -30,6 +30,6 @@ dependency "key_pair" {
 
 inputs = {
   key_name_basic = dependency.key_pair.outputs.keypair
-  subnet_public = dependency.vpc.outputs.subnet_ids[0]
+  subnet_public = dependency.vpc.outputs.subnet_ids
   instance_sg = dependency.sg.outputs.sg_id
 }

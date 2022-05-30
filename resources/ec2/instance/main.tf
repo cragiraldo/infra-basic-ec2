@@ -8,7 +8,7 @@ module "ec2_instance" {
   key_name               = var.key_name_basic
   monitoring             = false
   vpc_security_group_ids = [var.instance_sg]
-  subnet_id              = var.subnet_public
+  subnet_id              = var.subnet_public[0]
   user_data = file("userdata.sh")
 
   tags = {

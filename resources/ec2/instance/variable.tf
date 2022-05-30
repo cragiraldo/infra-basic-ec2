@@ -1,5 +1,6 @@
 variable "subnet_public" {
     description = "Subnet for public network"
+    type = list
     default = null
 }
 
